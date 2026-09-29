@@ -65,8 +65,8 @@
     "LICENSE",
     "src/styles/jfix.scss",
     "__tests__",
-    "!__tests__/contract.test.ts",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "PROVENANCE.json"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json && sass src/styles/jfix.scss dist/styles/jfix.css --style=compressed --no-source-map",

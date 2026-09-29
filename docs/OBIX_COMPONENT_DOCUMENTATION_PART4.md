@@ -1,4 +1,6 @@
-# @obinexusltd/obix Components - Accessibility & WCAG 2.1 AA Compliance
+# obix Components - Accessibility & WCAG 2.1 AA Compliance
+
+> **Package names.** This documentation uses the current, unscoped, canonical OBIX package names (decision D-102): the component library is [`obix-core-component`](https://github.com/obinexus/obix-core-component) and `ObixRuntime` is [`obix-core-runtime`](https://github.com/obinexus/obix-core-runtime); it was first written for earlier package names (historical — the old names still resolve through compatibility packages). Applications normally start from the umbrella [`obix`](https://github.com/obinexus/obix).
 
 **Version**: 0.1.0  
 **Part 4 of 4**
@@ -1309,6 +1311,6 @@ OBIX components are **accessibility-first by default**. Every component:
 - [Part 1: Philosophy & Principles](./OBIX_COMPONENT_DOCUMENTATION_PART1.md)
 - [Part 2: Component API Reference](./OBIX_COMPONENT_DOCUMENTATION_PART2.md)
 - [Part 3: Integration Patterns](./OBIX_COMPONENT_DOCUMENTATION_PART3.md)
-- [GitHub: @obinexusltd/obix](https://github.com/obinexusmk2/obix)
+- [GitHub: obix](https://github.com/obinexus/obix)
 - [WCAG 2.1 Specification](https://www.w3.org/WAI/WCAG21/quickref/)
 

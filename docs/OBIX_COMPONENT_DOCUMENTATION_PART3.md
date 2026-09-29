@@ -1,4 +1,6 @@
-# @obinexusltd/obix Components - Integration Patterns & Examples
+# obix Components - Integration Patterns & Examples
+
+> **Package names.** This documentation uses the current, unscoped, canonical OBIX package names (decision D-102): the component library is [`obix-core-component`](https://github.com/obinexus/obix-core-component) and `ObixRuntime` is [`obix-core-runtime`](https://github.com/obinexus/obix-core-runtime); it was first written for earlier package names (historical — the old names still resolve through compatibility packages). Applications normally start from the umbrella [`obix`](https://github.com/obinexus/obix).
 
 **Version**: 0.1.0  
 **Part 3 of 4**
@@ -31,7 +33,7 @@ import {
   createTextarea,
   createButton,
   createAlert
-} from '@obinexusltd/obix-component-runtime';
+} from 'obix-core-component';
 
 // Component definitions
 const emailInput = createInput({
@@ -219,14 +221,14 @@ render();
 /** @jsx h */
 /** @jsxFrag Fragment */
 
-import { h, Fragment } from '@obinexusltd/obix-component-runtime/jsx-runtime';
+import { h, Fragment } from 'obix-core-component/jsx-runtime';
 import {
   createForm,
   createInput,
   createTextarea,
   createButton,
   createAlert
-} from '@obinexusltd/obix-component-runtime';
+} from 'obix-core-component';
 
 interface ContactFormState {
   name: { value: string; error?: string };
@@ -348,7 +350,7 @@ import {
   createAlert,
   createBreadcrumb,
   createButton
-} from '@obinexusltd/obix-component-runtime';
+} from 'obix-core-component';
 
 // Navigation
 const dashboard Nav = createNavigation({
@@ -513,7 +515,7 @@ function renderDashboard() {
 ### Responsive Product Grid
 
 ```typescript
-import { createCard, createImage, createButton, createRating } from '@obinexusltd/obix-component-runtime';
+import { createCard, createImage, createButton, createRating } from 'obix-core-component';
 
 const products = [
   {
@@ -665,7 +667,7 @@ import {
   createImage,
   createCard,
   createFooter
-} from '@obinexusltd/obix-component-runtime';
+} from 'obix-core-component';
 
 // Navigation
 const navBar = createNavigation({
@@ -814,7 +816,7 @@ function renderLandingPage() {
 ### Confirmation Dialog Pattern
 
 ```typescript
-import { createModal, createButton } from '@obinexusltd/obix-component-runtime';
+import { createModal, createButton } from 'obix-core-component';
 
 function createConfirmationModal(options) {
   const { title, message, confirmLabel = 'Confirm', cancelLabel = 'Cancel', onConfirm, onCancel } = options;
@@ -886,7 +888,7 @@ import {
   createCard,
   createTable,
   createAlert
-} from '@obinexusltd/obix-component-runtime';
+} from 'obix-core-component';
 
 const app = express();
 
@@ -989,7 +991,7 @@ app.post('/modal/delete-confirmation', (req, res) => {
 ### Context-based State with Revisions
 
 ```typescript
-import { createButton } from '@obinexusltd/obix-component-runtime';
+import { createButton } from 'obix-core-component';
 
 class FormStateManager {
   constructor() {
@@ -1077,7 +1079,7 @@ console.log(stateManager.getState()); // { name: 'Alice' }
 ### Comprehensive Validation Pattern
 
 ```typescript
-import { createForm, createInput, createAlert } from '@obinexusltd/obix-component-runtime';
+import { createForm, createInput, createAlert } from 'obix-core-component';
 
 class FormValidator {
   constructor() {
@@ -1394,5 +1396,5 @@ const accessibleTable = createTable({
 
 - [Part 4: Accessibility & WCAG Compliance Guide](./OBIX_COMPONENT_DOCUMENTATION_PART4.md)
 - [API Reference](./OBIX_COMPONENT_DOCUMENTATION_PART2.md)
-- [GitHub: @obinexusltd/obix](https://github.com/obinexusmk2/obix)
+- [GitHub: obix](https://github.com/obinexus/obix)
 

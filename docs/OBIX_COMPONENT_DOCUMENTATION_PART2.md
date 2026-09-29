@@ -1,4 +1,6 @@
-# @obinexusltd/obix Components - Complete API Reference
+# obix Components - Complete API Reference
+
+> **Package names.** This documentation uses the current, unscoped, canonical OBIX package names (decision D-102): the component library is [`obix-core-component`](https://github.com/obinexus/obix-core-component) and `ObixRuntime` is [`obix-core-runtime`](https://github.com/obinexus/obix-core-runtime); it was first written for earlier package names (historical — the old names still resolve through compatibility packages). Applications normally start from the umbrella [`obix`](https://github.com/obinexus/obix).
 
 **Version**: 0.1.0  
 **Part 2 of 4**
@@ -2180,7 +2182,7 @@ const faqAccordion = createAccordion({
     {
       id: 'q2',
       heading: 'How do I install it?',
-      content: '<p>npm install @obinexusltd/obix-component-runtime</p>'
+      content: '<p>npm install obix-core-component</p>'
     },
     {
       id: 'q3',

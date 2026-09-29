@@ -129,8 +129,6 @@ MIT — OBINexus <okpalan@protonmail.com>
 npm install obix-core-component
 ```
 
-> **Not yet on npm.** The OBIX packages are prepared for publication and are published only on the owner's authorisation; until then this is the command the published package will answer to.
-
 ## API surface
 
 - `obix-core-component` — 65 value exports: `DEFAULT_FOCUS_CONFIG`, `DEFAULT_JFIX_STRATEGY`, `DEFAULT_REDUCED_MOTION`, `DEFAULT_TOUCH_TARGET`, `JFIX_CLASS_MAP`, `JFIX_STRATEGIES`, `OBIX_MIN_TARGET_PX`, `PolicyViolationError`, `TOKENS`, `applyAccessibilityPolicy`, `applyAllFudPolicies`, `applyFocusPolicy`, `applyLoadingPolicy`, `applyReducedMotionPolicy`, `applyTouchTargetPolicy`, `createAccordion`, `createAlert`, `createAutocomplete`, `createBreadcrumb`, `createButton`, `createCard`, `createCheckbox`, `createDatePicker`, `createDropdown`, `createFileUpload`, `createFocusTrap`, `createForm`, `createId`, `createImage`, `createInput`, `createLink`, `createLoading`, `createModal`, `createNavigation`, `createObixAdapter`, `createPagination`, `createProgress`, `createRadioGroup`, `createSearch`, `createSelect`, … (25 more)
@@ -161,10 +159,11 @@ The architecture of OBIX — the package families and which packages are public 
 
 ## Testing
 
-- 13 test files ship in the npm package (`__tests__/`): they are the evidence of the package's contract, published so that its verification can be read — not runtime code (no entry point reaches them).
-- Run them with `npm test` (`vitest run`) in the OBIX monorepo, which provides the test tooling (Node's test runner, Vitest, TypeScript).
-- 1 test file is in the repository but not in the npm package, because it uses the monorepo's shared test harness, oracles or fixtures:
+- 14 test files ship in the npm package (`__tests__/`): the evidence of the package's contract, published so that its verification can be inspected — not runtime code (no entry point reaches them).
+- **Standalone**: 13 of 14 — they read nothing outside the package.
+- **Need the OBIX development / test harness**: 1 — it reads the OBIX monorepo's shared harness, oracles or fixtures, so it does **not** run from an npm install or from this package's repository alone; it is shipped for inspection and provenance:
   - `__tests__/contract.test.ts` — reads ../../../tests/support/component-docs.mjs, outside the package
+- Run them with `npm test` (`vitest run`) in the OBIX monorepo, which provides the test tooling (Node's test runner, Vitest, TypeScript) and the harness.
 
 ## Documentation
 
@@ -179,7 +178,7 @@ The architecture of OBIX — the package families and which packages are public 
 
 - https://github.com/obinexus/obix-core-component — `git@github.com:obinexus/obix-core-component.git`
 - Issues: https://github.com/obinexus/obix-core-component/issues
-- The repository is a clean export of the package from the OBIX monorepo; its lineage (the monorepo commit it was exported from, the sources it was recovered from, earlier names) is in `PROVENANCE.json`.
+- The repository is a clean export of the package from the OBIX monorepo. Its lineage — the sources it was recovered from and its earlier names — is `PROVENANCE.json`, shipped in this package; the repository's copy also records the monorepo commit it was exported from.
 
 ## License
 

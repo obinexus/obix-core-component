@@ -1,4 +1,6 @@
-# @obinexusltd/obix Component Library Documentation
+# obix Component Library Documentation
+
+> **Package names.** This documentation uses the current, unscoped, canonical OBIX package names (decision D-102): the component library is [`obix-core-component`](https://github.com/obinexus/obix-core-component) and `ObixRuntime` is [`obix-core-runtime`](https://github.com/obinexus/obix-core-runtime); it was first written for earlier package names (historical — the old names still resolve through compatibility packages). Applications normally start from the umbrella [`obix`](https://github.com/obinexus/obix).
 
 **Version**: 0.1.0  
 **Author**: Nnamdi Okpalan / OBINexus Computing  
@@ -61,42 +63,42 @@ Policies apply **automatically** at component creation—no configuration needed
 ### Step 1: Install the Main Package
 
 ```bash
-npm install @obinexusltd/obix-component-runtime
+npm install obix-core-component
 ```
 
-Or install individual component categories:
+The component categories are subpaths of the same package — import paths, not separate installs:
 
-```bash
-npm install @obinexusltd/obix-component-runtime/primitives
-npm install @obinexusltd/obix-component-runtime/forms
-npm install @obinexusltd/obix-component-runtime/navigation
-npm install @obinexusltd/obix-component-runtime/overlays
-npm install @obinexusltd/obix-component-runtime/feedback
-npm install @obinexusltd/obix-component-runtime/controls
-npm install @obinexusltd/obix-component-runtime/data
-npm install @obinexusltd/obix-component-runtime/search
+```typescript
+import { /* … */ } from 'obix-core-component/primitives';
+import { /* … */ } from 'obix-core-component/forms';
+import { /* … */ } from 'obix-core-component/navigation';
+import { /* … */ } from 'obix-core-component/overlays';
+import { /* … */ } from 'obix-core-component/feedback';
+import { /* … */ } from 'obix-core-component/controls';
+import { /* … */ } from 'obix-core-component/data';
+import { /* … */ } from 'obix-core-component/search';
 ```
 
 ### Step 2: Import Styles
 
 ```typescript
 // Global styles (once per app)
-import '@obinexusltd/obix-component-runtime/styles';
+import 'obix-core-component/styles';
 ```
 
 Optional: Use SCSS source for customization:
 
 ```typescript
-import '@obinexusltd/obix-component-runtime/styles/scss';
+import 'obix-core-component/styles/scss';
 ```
 
 ### Step 3: Verify Installation
 
 ```bash
-npm list @obinexusltd/obix-component-runtime
+npm list obix-core-component
 ```
 
-Expected output: `@obinexusltd/obix-component-runtime@0.1.0`
+Expected output: `obix-core-component@0.5.0`
 
 ---
 
@@ -109,7 +111,7 @@ OBIX components work across **three different coding styles**. Choose the one th
 **Best for**: Server-side rendering, HTMX, vanilla JavaScript, testing
 
 ```typescript
-import { createButton, createInput, createCard } from '@obinexusltd/obix-component-runtime';
+import { createButton, createInput, createCard } from 'obix-core-component';
 
 // Create a button component
 const saveBtn = createButton({
@@ -175,8 +177,8 @@ Usage:
 /** @jsxRuntime classic */
 /** @jsx h */
 /** @jsxFrag Fragment */
-import { h, Fragment } from '@obinexusltd/obix-component-runtime/jsx-runtime';
-import { createButton, createInput, createForm } from '@obinexusltd/obix-component-runtime';
+import { h, Fragment } from 'obix-core-component/jsx-runtime';
+import { createButton, createInput, createForm } from 'obix-core-component';
 
 // JSX compiles to h() function calls
 function LoginForm() {
@@ -228,7 +230,7 @@ app.innerHTML = LoginForm();
 
 ```typescript
 // Express.js example
-import { createAlert, createModal, createTable } from '@obinexusltd/obix-component-runtime';
+import { createAlert, createModal, createTable } from 'obix-core-component';
 
 app.get('/dashboard', (req, res) => {
   // Create components
@@ -535,7 +537,7 @@ Every component runs **`applyAllFudPolicies()`** automatically at creation. No c
 Check policy compliance manually:
 
 ```typescript
-import { validateFudCompliance, applyAllFudPolicies } from '@obinexusltd/obix-component-runtime';
+import { validateFudCompliance, applyAllFudPolicies } from 'obix-core-component';
 
 const myButton = createButton({ label: 'Delete', size: 'xs' });
 
@@ -646,7 +648,7 @@ Three CSS strategies for hover effects (no layout shift):
 ### Applying jfix in Components
 
 ```typescript
-import '@obinexusltd/obix-component-runtime/styles'; // Includes jfix
+import 'obix-core-component/styles'; // Includes jfix
 
 const btn = createButton({
   label: 'Click me',
@@ -721,15 +723,15 @@ btn.destroy();
 
 ### Optional: ObixRuntime for Lifecycle Management
 
-For managed lifecycle tracking, use `@obinexusltd/obix-sdk-core`:
+For managed lifecycle tracking, use `obix-core-runtime`:
 
 ```bash
-npm install @obinexusltd/obix-sdk-core
+npm install obix-core-runtime
 ```
 
 ```typescript
-import { ObixRuntime } from '@obinexusltd/obix-sdk-core';
-import { createButton } from '@obinexusltd/obix-component-runtime';
+import { ObixRuntime } from 'obix-core-runtime';
+import { createButton } from 'obix-core-component';
 
 const runtime = new ObixRuntime({
   maxRevisions: 50,           // Keep last 50 state revisions
@@ -796,7 +798,7 @@ interface ObixComponent<S, A> {
 ### Example: Building State Transitions
 
 ```typescript
-import { createButton } from '@obinexusltd/obix-component-runtime';
+import { createButton } from 'obix-core-component';
 
 // Create button
 const btn = createButton({
