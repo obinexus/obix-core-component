@@ -1,0 +1,105 @@
+{
+  "name": "obix-core-component",
+  "version": "0.5.0",
+  "description": "OBIX Heart/Soul UI/UX SDK — 30 WCAG 2.1 AA accessible components with FUD policy enforcement and jfix.scss design system",
+  "license": "MIT",
+  "author": "OBINexus <okpalan@protonmail.com>",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles": "./dist/styles/jfix.css",
+    "./styles/scss": "./src/styles/jfix.scss",
+    "./primitives": {
+      "types": "./dist/primitives/index.d.ts",
+      "import": "./dist/primitives/index.js"
+    },
+    "./forms": {
+      "types": "./dist/forms/index.d.ts",
+      "import": "./dist/forms/index.js"
+    },
+    "./navigation": {
+      "types": "./dist/navigation/index.d.ts",
+      "import": "./dist/navigation/index.js"
+    },
+    "./overlays": {
+      "types": "./dist/overlays/index.d.ts",
+      "import": "./dist/overlays/index.js"
+    },
+    "./feedback": {
+      "types": "./dist/feedback/index.d.ts",
+      "import": "./dist/feedback/index.js"
+    },
+    "./controls": {
+      "types": "./dist/controls/index.d.ts",
+      "import": "./dist/controls/index.js"
+    },
+    "./data": {
+      "types": "./dist/data/index.d.ts",
+      "import": "./dist/data/index.js"
+    },
+    "./search": {
+      "types": "./dist/search/index.d.ts",
+      "import": "./dist/search/index.js"
+    },
+    "./jsx-runtime": {
+      "types": "./dist/jsx-runtime.d.ts",
+      "import": "./dist/jsx-runtime.js"
+    },
+    "./jsx-dev-runtime": {
+      "types": "./dist/jsx-dev-runtime.d.ts",
+      "import": "./dist/jsx-dev-runtime.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "docs",
+    "README.md",
+    "LICENSE",
+    "src/styles/jfix.scss",
+    "__tests__",
+    "!__tests__/contract.test.ts",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && sass src/styles/jfix.scss dist/styles/jfix.css --style=compressed --no-source-map",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "obix",
+    "accessibility",
+    "wcag",
+    "aria",
+    "components",
+    "ui",
+    "fud-mitigation",
+    "jfix",
+    "jsx",
+    "data-oriented",
+    "dop",
+    "htmlx",
+    "obinexus"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/obinexus/obix-core-component.git"
+  },
+  "bugs": {
+    "url": "https://github.com/obinexus/obix-core-component/issues"
+  },
+  "homepage": "https://github.com/obinexus/obix-core-component#readme"
+}

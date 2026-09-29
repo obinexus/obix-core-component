@@ -1,0 +1,175 @@
+{
+  "package": "obix-core-component",
+  "dir": "core/obix-core-component",
+  "importedBy": "scripts/recovery/import-packages.mjs",
+  "snapshot": "snap-20260924T142414Z",
+  "stage": "stage-2 lift-and-shift (base owner; later stages repair/merge)",
+  "sources": [
+    {
+      "label": "upstream:obix-component-runtime@4a25978",
+      "repo": "obix-component-runtime",
+      "url": "https://github.com/obinexusmk2/obix-component-runtime",
+      "sha": "4a2597865dfd34de0bc934836de364aa447cdf0e",
+      "path": ".",
+      "license": "MIT",
+      "licenseFileUpstream": false,
+      "filesImported": 72,
+      "filesExcluded": 223
+    }
+  ],
+  "originalManifest": {
+    "name": "@obinexusltd/obix-component-runtime",
+    "version": "0.1.0",
+    "license": "MIT",
+    "bin": null,
+    "scripts": {
+      "build:ts": "tsc",
+      "build:scss": "sass src/styles/jfix.scss dist/styles/jfix.css --style=compressed --no-source-map",
+      "build": "npm run build:ts && npm run build:scss",
+      "test": "vitest run",
+      "test:watch": "vitest"
+    }
+  },
+  "transforms": [
+    "package.json regenerated (lockstep version, exact internal pins, exports with \"types\" first, standard scripts)",
+    "tsconfig.json generated (NodeNext via tsconfig.base.json; DOM lib enabled: source uses DOM globals — reviewed for import-purity in Stage 3)",
+    "internal specifiers renamed: @obinexusltd/obix-component-runtime×2→@obinexusltd/obix-core-component",
+    "relative imports given \".js\"/\"/index.js\" extensions: 0",
+    "dependencies dropped: @obinexusltd/obix-component-feedback (self); @obinexusltd/obix-component-forms (self); @obinexusltd/obix-component-navigation (self); @obinexusltd/obix-component-overlays (self); @obinexusltd/obix-component-search (unknown internal name, not a target); @obinexusltd/obix-component-primitives (unknown internal name, not a target); @obinexusltd/obix-component-controls (self); @obinexusltd/obix-component-data (self); @obinexusltd/obix-core-runtime (declared in peerDependencies, never imported)",
+    "LICENSE generated from the declared MIT license (upstream repo had no LICENSE file)"
+  ],
+  "localFixes": [
+    {
+      "file": "PROVENANCE.md",
+      "why": "scope (brief: no other OBINexus projects): the upstream section describes OBIX as built on another OBINexus project; the authorship section stays"
+    },
+    {
+      "file": "docs/OBIX_COMPONENT_DOCUMENTATION_PART3.md",
+      "why": "scope: sample product record in a documentation example named another OBINexus project"
+    },
+    {
+      "file": "docs/OBIX_COMPONENT_DOCUMENTATION_PART3.md",
+      "why": "scope: same sample record"
+    },
+    {
+      "file": "docs/OBIX_COMPONENT_DOCUMENTATION_PART3.md",
+      "why": "scope: same sample record"
+    },
+    {
+      "file": "__tests__/navigation.test.ts",
+      "why": "split an upstream test that mixed a valid skip-link assertion with an unsupported default-current assertion; the latter is now an explicit known-defect test (KD-01), nothing is removed"
+    },
+    {
+      "stage": "stage-5",
+      "files": [
+        "src/kit/*",
+        "src/primitives/*",
+        "src/forms/*",
+        "src/navigation/*",
+        "src/overlays/*",
+        "src/feedback/*",
+        "src/controls/*",
+        "src/data/*",
+        "src/search/*",
+        "src/index.ts",
+        "src/types/base.ts",
+        "src/policies/*"
+      ],
+      "why": "Stage 5 (D-29..D-31): all 31 components rebuilt on one assembler (defineComponent): full-next-state actions, identity on no-op, policies re-run at every transition, aria derived from state, deterministic ids, escaping and URL allow-listing, documented config/actions accepted (245/245, 138/138), createLink implemented, APG keyboard patterns declared in markup; BaseComponentDef and Gen-2 validateFudCompliance names added; 48 px target policy with corrected citations."
+    },
+    {
+      "stage": "stage-5",
+      "files": [
+        "src/styles/jfix.scss"
+      ],
+      "why": "rebuilt for the new markup (all rendered classes styled, checked by scripts/recovery/style-coverage.mjs); six WCAG 1.4.3/1.4.11 token failures darkened; [hidden] wins; visually-hidden utility; reduced motion; zero Sass deprecation warnings."
+    },
+    {
+      "stage": "stage-5",
+      "files": [
+        "__tests__/contract.test.ts",
+        "__tests__/behaviour.test.ts",
+        "__tests__/controls.test.ts",
+        "__tests__/policies.test.ts",
+        "__tests__/navigation.test.ts",
+        "__tests__/primitives.test.ts",
+        "README.md"
+      ],
+      "why": "contract matrix over all 31 factories (shared samples in tests/support), behaviour tests, 44->48 px expectations, the KD-01 it.fails test became a positive test, native slider render assertion; README rewritten to state only what is verified."
+    },
+    {
+      "stage": "stage-5",
+      "files": [
+        "__tests__/link.test.ts"
+      ],
+      "why": "createLink tests (Part 2 Link, implemented from the documentation; no upstream source had it): external detection, rel default for new windows, derived accessible names, actions, inert unsafe href, escaping."
+    },
+    {
+      "stage": "stage-6",
+      "files": [
+        "src/forms/date-picker.ts",
+        "src/forms/file-upload.ts",
+        "src/feedback/loading.ts"
+      ],
+      "why": "Stage 6, found by running fudguard over every component in every named state: the DatePicker calendar dialog gets tabindex=\"-1\" (focus marker); the FileUpload hidden input uses a visually-hidden class instead of an inline 1 px size; the Loading placeholder has a 24 px minimum footprint. 433 unit tests unchanged."
+    },
+    {
+      "stage": "stage-7",
+      "files": [
+        "src/kit/render-with.ts",
+        "src/kit/index.ts",
+        "src/index.ts",
+        "__tests__/render-with.test.ts"
+      ],
+      "why": "Stage 7: renderWith(create) — the one-call render helper behind the renderX names of the twenty per-component compat packages (D-39); 4 tests."
+    },
+    {
+      "stage": "stage-7",
+      "files": [
+        "src/kit/component.ts"
+      ],
+      "why": "Stage 7 (isolated consumer under TS 6.0.3 / 7.0.2 / 5.9.3): ObixComponent['actions'] typed (state, ...args) => S instead of Partial<S> (api-deltas 69)"
+    },
+    {
+      "stage": "naming-migration",
+      "files": [
+        "package.json",
+        "src/adapter/create-obix-adapter.ts",
+        "src/kit/render-with.ts"
+      ],
+      "why": "D-41: a dangling peerDependenciesMeta entry naming the compat package obix-sdk-core (no matching peerDependencies) removed; two comments that named compat packages now name the canonical owner."
+    }
+  ],
+  "scopeScrub": {
+    "rule": "scripts/recovery/scrub-rules.mjs (brief: no other OBINexus projects)",
+    "replacementsPerFile": {}
+  },
+  "authoredOverlay": [],
+  "excluded": [
+    "dist/**",
+    "node_modules/**",
+    "lockfiles",
+    "tsconfig*.json (regenerated)",
+    ".gitignore",
+    ".github/**",
+    "coverage/**"
+  ],
+  "unresolvedRelativeImports": [],
+  "note": "Gen-1 documented implementation (30 factories) is the base; Gen-2 shape and per-component shims are added in Stage 5. Navigation config/actions differ almost entirely from Part 2 (docs vs code) — reworked in Stage 5",
+  "renamedFrom": [
+    {
+      "name": "@obinexusltd/obix-core-component",
+      "dir": "core/obix-core-component",
+      "stage": "unscoped-naming",
+      "why": "D-102 (2026-09-29): OBIX packages are named without an npm scope — previous name @obinexusltd/obix-core-component, current name obix-core-component (docs/recovery/unscoped-migration.md); the directory, version and exports are unchanged"
+    }
+  ],
+  "export": {
+    "from": "https://github.com/obinexusmk2/obix-monorepo",
+    "branch": "recovery/obix-api-preserving-rebuild",
+    "commit": "69cafc94910c1add865a520877617ac307668875",
+    "directory": "core/obix-core-component",
+    "exportedBy": "scripts/release/export-repos.mjs",
+    "note": "a clean initial commit of this package; the monorepo history is not imported (D-103). Local machine paths in this record are replaced by <local workspace>."
+  }
+}
